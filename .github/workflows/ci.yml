@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run docker command
-        run: docker run -d port 4520:3036 --name mysql mysql:latest
+        run: docker run -d -p 4520:3036 --name mysql mysql:latest
