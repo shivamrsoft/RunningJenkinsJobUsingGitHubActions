@@ -1,4 +1,4 @@
-name: Build and Test
+name: Docker Image CI
 
 on:
   pull_request_target:
