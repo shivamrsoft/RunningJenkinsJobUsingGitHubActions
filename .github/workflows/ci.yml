@@ -1,19 +1,14 @@
-# This is a basic workflow that is manually triggered
-name: Build
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI or API.
+name: trigger jenkins job
 on: [push]
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-    # The type of runner that the job will run on
+    name: Build
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Webhook
-        # uses: distributhor/workflow-webhook
+      - name: Trigger Jenkins Job
+        uses: appleboy/jenkins-action@0.0.1
         with:
-          url: "${{ secrets.URL }}"
-          json: '{ "repository": "${{github.event.repository.full_name}}", "number": "${{github.event.number}}", "created_at": "${{github.event.pull_request.created_at}}", "updated_at": "${{github.event.pull_request.updated_at}}","conclusion": "${{github.event.pull_request.conclusion}}" }'
+          url: "http://35.232.120.3:8080/"
+          user: "Shivam_purohit"
+          token: "11860c05333fedaabe894cab59729c3b19"
+          job: "test"
